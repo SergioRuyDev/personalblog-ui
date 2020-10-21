@@ -26,7 +26,9 @@ import { RegisterSuccessComponent } from './auth/register-success/register-succe
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'register', component: RegisterComponent}
+      {path: 'register', component: RegisterComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'register-success', component: RegisterSuccessComponent}
       ]),
     HttpClientModule
   ],
