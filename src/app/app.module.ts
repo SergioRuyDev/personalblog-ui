@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RegisterSuccessComponent } from './auth/register-success/register-succe
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxWebstorageModule.forRoot(),
     RouterModule.forRoot([
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},

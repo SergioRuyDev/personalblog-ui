@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
+import { LoginPayload } from '../login-payload';
+import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,18 +13,32 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor() {
+  loginPayload: LoginPayload;
+
+  constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       username: new FormControl(),
       password: new FormControl()
-    })
+    });
+    this.loginPayload = {
+      username: '',
+      password: ''
+    };
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   onSubmit() {
-    this.loginForm.get('username').value;
-    this.loginForm.get('password').value;
+    this.loginPayload.username = this.loginForm.get('username').value;
+    this.loginPayload.password = this.loginForm.get('password').value;
+
+    this.authService.login(this.loginPayload).subscribe(data => {
+      if (data) {
+        console.log('login success');
+      } else {
+        console.log('Login failed');
+      }
+    });
   }
 }
