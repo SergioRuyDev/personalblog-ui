@@ -12,6 +12,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     HeaderComponent,
     RegisterComponent,
     LoginComponent,
-    RegisterSuccessComponent
+    RegisterSuccessComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     RouterModule.forRoot([
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'register-success', component: RegisterSuccessComponent}
+      {path: 'register-success', component: RegisterSuccessComponent},
+      {path: 'register-success', component: HomeComponent}
       ]),
     HttpClientModule
   ],

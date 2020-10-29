@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { LoginPayload } from '../login-payload';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({

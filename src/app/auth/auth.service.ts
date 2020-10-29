@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { RegisterPayload } from './auth/register/register-payload';
-import { LoginPayload } from './auth/login-payload';
-import { JwtAutResponse } from './auth/jwt-aut-response';
+import { RegisterPayload } from './register-payload';
+import { LoginPayload } from './login-payload';
+import { JwtAutResponse } from './jwt-aut-response';
 import { map } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
 
@@ -27,5 +27,9 @@ export class AuthService {
       this.localStoraqeService.store('username', data.username);
       return true;
     }));
+  }
+
+  isAuthenticated(): boolean {
+    return this.localStoraqeService.retrieve('username') != null;
   }
 }
